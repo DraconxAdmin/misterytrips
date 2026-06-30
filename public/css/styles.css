@@ -1,0 +1,187 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+::selection { background: #DDA84A; color: #0C1026; }
+
+@keyframes mt-float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(-2deg); } }
+@keyframes mt-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes mt-twinkle { 0%,100% { opacity: 0.25; } 50% { opacity: 0.9; } }
+
+/* Hover states (the mockups used a non-standard style-hover attribute) */
+.cta-gold:hover { background: #EBC477 !important; }
+.cta-dark:hover { background: #2E1A47 !important; }
+.cta-outline:hover { border-color: #DDA84A !important; }
+.cta-ghost:hover { background: #14122B !important; color: #F4EDDF !important; }
+.foot-link:hover { color: #DDA84A !important; }
+/* declutter headers on small screens — the footer still credits Draconx */
+@media (max-width: 560px) { .nav-draconx { display: none !important; } }
+
+/* Avatar fallback for reveal stories */
+.mt-avatar {
+  width: 60px; height: 60px; flex: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Newsreader', serif; font-size: 22px; color: #14122B;
+  background: radial-gradient(circle at 38% 34%, #EBC477, #C2882E);
+}
+
+/* Quiz form */
+.q-field { margin-bottom: 26px; }
+.q-label { display: block; font-size: 14px; font-weight: 600; color: #F4EDDF; margin-bottom: 9px; }
+.q-hint { font-size: 13px; color: #8C88A8; margin: -2px 0 9px; }
+.q-input, .q-textarea, .q-select {
+  width: 100%; background: #100C2A; border: 1px solid #2A2650; border-radius: 12px;
+  color: #F4EDDF; font-family: 'Hanken Grotesk', sans-serif; font-size: 15px;
+  padding: 13px 15px; outline: none; transition: border-color 0.2s ease;
+}
+.q-input:focus, .q-textarea:focus, .q-select:focus { border-color: #DDA84A; }
+.q-input::placeholder, .q-textarea::placeholder { color: #6B6788; }
+.q-textarea { min-height: 96px; resize: vertical; }
+.q-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 560px) { .q-row { grid-template-columns: 1fr; } }
+
+.q-choices { display: flex; flex-wrap: wrap; gap: 10px; }
+.q-chip { position: relative; }
+.q-chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.q-chip span {
+  display: inline-block; padding: 10px 16px; border-radius: 999px;
+  border: 1px solid #2A2650; background: #100C2A; color: #C7C3D6;
+  font-size: 14px; cursor: pointer; transition: all 0.15s ease; user-select: none;
+}
+.q-chip input:checked + span { border-color: #DDA84A; background: rgba(221,168,74,0.14); color: #F4EDDF; }
+.q-chip input:focus-visible + span { outline: 2px solid #DDA84A; outline-offset: 2px; }
+
+.q-pkg { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .q-pkg { grid-template-columns: 1fr; } }
+.q-pkg label { position: relative; cursor: pointer; }
+.q-pkg input { position: absolute; opacity: 0; }
+.q-pkg .card {
+  border: 1px solid #2A2650; background: #100C2A; border-radius: 16px; padding: 22px 22px 20px;
+  transition: all 0.15s ease; height: 100%;
+}
+.q-pkg input:checked + .card { border-color: #DDA84A; background: rgba(221,168,74,0.08); }
+.q-pkg .card .name { font-family: 'Newsreader', serif; font-size: 22px; color: #F4EDDF; }
+.q-pkg .card .price { color: #DDA84A; font-size: 15px; margin: 4px 0 8px; }
+.q-pkg .card .desc { font-size: 13px; color: #9A95B5; line-height: 1.5; }
+
+.q-error { color: #E58A8A; font-size: 14px; margin: 0 0 18px; }
+.btn-submit {
+  width: 100%; background: #DDA84A; color: #14122B; font-weight: 600; font-size: 16px;
+  border: none; padding: 17px; border-radius: 999px; cursor: pointer; transition: background 0.2s ease;
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+.btn-submit:hover { background: #EBC477; }
+.btn-submit:disabled { opacity: 0.6; cursor: default; }
+
+/* ---- Responsive: stack fixed two-column sections & contain fixed-width cards ---- */
+/* Cap fixed-width cards so they never overflow narrow screens */
+.hero-pass { max-width: 100%; }
+.included-card { max-width: 100%; }
+img, svg { max-width: 100%; }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
+  .included-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+}
+
+/* Keep the "How it works" step illustrations a sensible size (they're square) */
+.step-card { max-width: 340px; margin-left: auto; margin-right: auto; }
+
+/* Hero fits the viewport even on short (laptop) screens — tighten vertical
+   rhythm progressively as the window gets shorter so nothing spills the fold. */
+@media (max-height: 820px) {
+  #top { padding-top: clamp(16px,2.4vh,40px) !important; padding-bottom: clamp(16px,2.4vh,40px) !important; }
+  .hero-title { margin-bottom: 16px !important; }
+  .hero-copy { margin-bottom: 22px !important; }
+  .hero-trust { margin-top: 20px !important; }
+}
+@media (max-height: 680px) {
+  .hero-copy { font-size: 15px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+  .hero-trust { margin-top: 14px !important; }
+}
+
+/* ============ One-question-per-page wizard ============ */
+.wz-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.wz-top {
+  position: sticky; top: 0; z-index: 30; background: rgba(12,16,38,0.9); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(221,168,74,0.14);
+}
+.wz-topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px clamp(20px,5vw,48px); }
+.wz-progress { height: 3px; background: #1C1840; }
+.wz-bar { height: 100%; width: 0; background: linear-gradient(90deg, #B07F2E, #DDA84A); transition: width 0.4s ease; }
+
+.wz-main { flex: 1; display: flex; padding: clamp(32px,6vh,72px) clamp(20px,5vw,40px) clamp(28px,5vw,48px); }
+.wz-stage { width: 100%; max-width: 620px; margin: 0 auto; }
+.wz-step { animation: wz-in 0.35s ease; }
+@keyframes wz-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+.wz-eyebrow { font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #DDA84A; font-weight: 600; margin-bottom: 18px; }
+.wz-q { font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(26px,4.2vw,40px); line-height: 1.15; letter-spacing: -0.015em; color: #F4EDDF; margin: 0 0 12px; }
+.wz-hint { font-size: 14px; line-height: 1.6; color: #9A95B5; margin: 0 0 26px; }
+.wz-required { color: #DDA84A; }
+
+/* choices reuse .q-chip; stack them as full-width rows for single-select clarity */
+.wz-options { display: flex; flex-direction: column; gap: 12px; }
+.wz-opt { position: relative; }
+.wz-opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.wz-opt > span {
+  display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 14px;
+  border: 1px solid #2A2650; background: #100C2A; color: #D7D3E4; font-size: 16px; cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.wz-opt > span::before {
+  content: ''; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #3C3766; flex: none; transition: all 0.15s ease;
+}
+.wz-opt.multi > span::before { border-radius: 6px; }
+.wz-opt input:checked + span { border-color: #DDA84A; background: rgba(221,168,74,0.1); color: #F4EDDF; }
+.wz-opt input:checked + span::before { border-color: #DDA84A; background: #DDA84A; box-shadow: inset 0 0 0 4px #100C2A; }
+.wz-opt input:focus-visible + span { outline: 2px solid #DDA84A; outline-offset: 2px; }
+
+/* compact pill grid for long option lists (countries, airports, traits) */
+.wz-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.wz-grid .wz-opt > span { padding: 11px 16px; border-radius: 999px; font-size: 14px; }
+.wz-grid .wz-opt > span::before { display: none; }
+
+/* rating 1-5 */
+.wz-rating { display: flex; gap: 10px; }
+.wz-rating .wz-opt { flex: 1; }
+.wz-rating .wz-opt > span { justify-content: center; padding: 18px 0; font-family: 'Newsreader', serif; font-size: 22px; }
+.wz-rating .wz-opt > span::before { display: none; }
+.wz-scale { display: flex; justify-content: space-between; font-size: 12px; color: #6B6788; margin-top: 10px; letter-spacing: 0.04em; }
+
+.wz-note { display: flex; gap: 12px; align-items: flex-start; background: rgba(221,168,74,0.08); border: 1px solid rgba(221,168,74,0.24); border-radius: 12px; padding: 14px 16px; margin-top: 20px; font-size: 13px; line-height: 1.55; color: #D6CDE2; }
+.wz-error { color: #E58A8A; font-size: 14px; margin: 16px 0 0; min-height: 18px; }
+
+/* section / intro screens */
+.wz-section { text-align: center; }
+.wz-illus { width: 100%; max-width: 320px; margin: 0 auto 26px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.wz-illus img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wz-illus--rating { max-width: 200px; aspect-ratio: 1/1; margin: 0 0 22px; border-radius: 16px; }
+
+/* action block — sits directly below the question */
+.wz-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 30px; }
+.wz-actions.center { align-items: center; }
+.wz-next {
+  background: #DDA84A; color: #14122B; font-weight: 600; font-size: 16px; border: none;
+  padding: 15px 40px; border-radius: 999px; cursor: pointer; font-family: 'Hanken Grotesk', sans-serif;
+  transition: background 0.2s ease;
+}
+.wz-next:hover { background: #EBC477; }
+.wz-next:disabled { opacity: 0.55; cursor: default; }
+.wz-back { background: none; border: none; color: #9A95B5; font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; cursor: pointer; padding: 4px 2px; }
+.wz-back:hover { color: #F4EDDF; }
+.wz-back[hidden] { display: none; }
+
+/* consent */
+.wz-consent { display: flex; gap: 14px; align-items: flex-start; background: #100C2A; border: 1px solid #2A2650; border-radius: 14px; padding: 20px; cursor: pointer; }
+.wz-consent input { width: 20px; height: 20px; margin-top: 2px; accent-color: #DDA84A; flex: none; }
+.wz-consent a { color: #DDA84A; }
+
+@media (max-width: 480px) {
+  .wz-rating { gap: 7px; }
+  .wz-rating .wz-opt > span { padding: 14px 0; font-size: 19px; }
+}
+
+/* On small phones, tighten the boarding-pass card so it fits with margins */
+@media (max-width: 380px) {
+  .hero-pass { width: 100% !important; }
+}

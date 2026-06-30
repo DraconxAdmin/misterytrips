@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    image: misterytrips
+    container_name: misterytrips
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      # host:container — put a reverse proxy (Caddy/Nginx) in front for the domain + SSL.
+      - "3000:3000"

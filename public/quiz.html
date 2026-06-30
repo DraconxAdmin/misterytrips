@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find your trip — MisteryTrips questionnaire</title>
+<meta name="description" content="Tell us your taste, one question at a time. We'll craft a surprise trip to somewhere you'd never have booked yourself — sealed until the gate.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0C1026">
+<link rel="canonical" href="https://misterytrips.com/quiz">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MisteryTrips">
+<meta property="og:title" content="Find your trip — MisteryTrips">
+<meta property="og:description" content="Answer a few questions and we'll craft a surprise trip, sealed until the gate.">
+<meta property="og:url" content="https://misterytrips.com/quiz">
+<meta property="og:image" content="https://misterytrips.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Find your trip — MisteryTrips">
+<meta name="twitter:description" content="Answer a few questions and we'll craft a surprise trip, sealed until the gate.">
+<meta name="twitter:image" content="https://misterytrips.com/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="wz-shell" style="font-family: 'Hanken Grotesk', sans-serif; background: #0C1026; color: #F4EDDF; overflow-x: hidden;">
+
+  <!-- top bar + progress -->
+  <div class="wz-top">
+    <div class="wz-topbar">
+      <div style="display: flex; align-items: center; gap: 11px;">
+        <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+          <svg viewBox="0 0 100 100" width="26" height="26" fill="none"><path d="M90 14 L10 52 L52 60 Z" fill="#DDA84A"/><path d="M90 14 L52 60 L44 86 Z" fill="#B07F2E"/></svg>
+          <span style="font-family: 'Newsreader', serif; font-size: 19px;"><span style="color:#F4EDDF;">mistery</span><span style="color:#DDA84A;">trips</span></span>
+        </a>
+        <a href="https://draconx.com" target="_blank" rel="noopener" class="foot-link nav-draconx" style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: #6B6788; font-size: 11px; letter-spacing: 0.06em; border-left: 1px solid #2A2650; padding-left: 11px;"><span>by</span><img src="https://draconx.com/wp-content/uploads/elementor/thumbs/output-onlinepngtools-1-e1773773774842-rknkh78265yqtewf5p3iegp331r0lf6e03vk8l3ez4.png" alt="Draconx" style="height: 15px; width: auto; display: block; opacity: 0.85;"></a>
+      </div>
+      <a href="/" class="foot-link" style="color: #8C88A8; text-decoration: none; font-size: 13px;">Save &amp; exit</a>
+    </div>
+    <div class="wz-progress"><div class="wz-bar" id="wz-bar"></div></div>
+  </div>
+
+  <!-- step stage -->
+  <main class="wz-main">
+    <div class="wz-stage">
+      <div id="wz-step" class="wz-step"><!-- rendered by JS --></div>
+      <div class="wz-error" id="wz-error"></div>
+      <div class="wz-actions" id="wz-actions">
+        <button class="wz-next" id="wz-next" type="button">Continue</button>
+        <button class="wz-back" id="wz-back" type="button">&larr; Back</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- success (hidden until submit) -->
+  <div id="wz-success" style="display:none; position: fixed; inset: 0; z-index: 60; background: radial-gradient(120% 100% at 50% 0%, #1A1640, #0C1026 60%); overflow:auto;">
+    <div style="max-width: 560px; margin: 0 auto; padding: clamp(60px,12vh,120px) 28px; text-align: center;">
+      <svg viewBox="0 0 100 100" width="70" height="70" fill="none" style="margin-bottom: 26px;">
+        <path d="M14 86 Q34 70 50 60" stroke="#9A7B33" stroke-width="2.5" stroke-dasharray="1 5.5" stroke-linecap="round"/>
+        <path d="M90 14 L10 52 L52 60 Z" fill="#DDA84A"/><path d="M90 14 L52 60 L44 86 Z" fill="#B07F2E"/>
+      </svg>
+      <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(30px,5vw,46px); letter-spacing: -0.02em; margin: 0 0 16px;">Your trip is now in motion.</h2>
+      <p style="font-size: 16px; line-height: 1.7; color: #C7C3D6; margin: 0 0 22px;">We've sent a confirmation to <strong id="wz-success-email" style="color:#DDA84A;"></strong>. Our team is matching you to somewhere you'd never have booked yourself — we'll be in touch shortly to confirm dates and payment.</p>
+      <div style="display:inline-block; border:1px dashed #DDA84A; border-radius:14px; padding:14px 30px; background:rgba(221,168,74,0.07); margin-bottom: 24px;">
+        <div style="font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:#DDA84A; margin-bottom:7px;">Your Trip ID</div>
+        <div id="wz-success-tripid" style="font-family:'Courier New',monospace; font-size:30px; letter-spacing:0.28em; color:#F4EDDF; font-weight:700;">······</div>
+      </div>
+      <p style="font-size: 13px; color: #6B6788; margin: 0 0 30px;">Quote this ID in any message to us. No payment has been taken — the destination stays sealed until the gate.</p>
+      <a href="/" class="cta-gold" style="display:inline-block; background:#DDA84A; color:#14122B; font-weight:600; font-size:15px; padding:14px 28px; border-radius:999px; text-decoration:none;">Back to home</a>
+    </div>
+  </div>
+
+</div>
+<script src="/js/quiz.js"></script>
+</body>
+</html>
