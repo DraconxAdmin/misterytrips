@@ -1,4 +1,4 @@
-/* MisteryTrips — one-question-per-page questionnaire engine */
+/* MisteryTrips, one-question-per-page questionnaire engine */
 (function () {
   'use strict';
 
@@ -21,7 +21,7 @@
     return out;
   })();
 
-  const AIRPORTS = ['Atlanta — ATL','Austin — AUS','Boston — BOS','Charlotte — CLT','Chicago — ORD','Dallas — DFW','Denver — DEN','Detroit — DTW','Houston — IAH','Kansas City — MCI','Los Angeles — LAX','Miami — MIA','Minneapolis — MSP','Nashville — BNA','New York — JFK/EWR','Phoenix — PHX','Portland — PDX','San Francisco — SFO','Seattle — SEA','Washington DC — IAD/BWI']
+  const AIRPORTS = ['Atlanta, ATL','Austin, AUS','Boston, BOS','Charlotte, CLT','Chicago, ORD','Dallas, DFW','Denver, DEN','Detroit, DTW','Houston, IAH','Kansas City, MCI','Los Angeles, LAX','Miami, MIA','Minneapolis, MSP','Nashville, BNA','New York, JFK/EWR','Phoenix, PHX','Portland, PDX','San Francisco, SFO','Seattle, SEA','Washington DC, IAD/BWI']
     .map((a) => ({ value: a, label: a }));
 
   const COUNTRIES = ['Portugal','Spain','Italy','France','Greece','Croatia','Iceland','Ireland','Norway','Netherlands','Czechia','Hungary','Turkey','Morocco','Japan','Thailand','Vietnam','Mexico','Costa Rica','Colombia','Peru','Argentina']
@@ -29,7 +29,7 @@
 
   const opt = (arr) => arr.map((v) => (typeof v === 'string' ? { value: v, label: v } : v));
 
-  // personalised "who" — e.g. "Jordan" or "Jordan & Sam"
+  // personalised "who", e.g. "Jordan" or "Jordan & Sam"
   const who = (a) => {
     const n = (a.firstName || '').trim();
     const c = (a.companions || '').trim();
@@ -45,13 +45,13 @@
   const STEPS = [
     { id: 'intro', type: 'intro', image: 'quiz-welcome.png',
       q: 'Find your trip.',
-      hint: 'Answer a few questions, one at a time — about three minutes. We craft the trip; the destination stays sealed until the gate. Nothing is charged today.',
+      hint: 'Answer a few questions, one at a time, about three minutes. We craft the trip; the destination stays sealed until the gate. Nothing is charged today.',
       cta: "Let's go" },
 
     // ---- Your group ----
     { id: 'groupSize', part: 'Your group', type: 'single', required: true,
       q: 'How many people are travelling?',
-      hint: 'You can add Explorers later. Max group size is 4 — everyone 10+, at least one 18+.',
+      hint: 'You can add Explorers later. Max group size is 4, everyone 10+, at least one 18+.',
       options: opt(['1 (just you)','2','3','4']) },
     { id: 'firstName', part: 'Your group', type: 'text', required: true,
       q: "What's your first name?", placeholder: 'First name', autocomplete: 'given-name' },
@@ -82,7 +82,7 @@
       options: opt(['Nothing you need to be aware of','Unable to do prolonged physical activity','Severe fear of heights',"Can't swim",'Sea sickness','Fear of deep water','Claustrophobia','Fear of dogs']) },
     { id: 'neverDo', part: 'Travel profile', type: 'multi', grid: true, required: true, exclusive: 'Comfortable with them all',
       q: 'Are there activities you would simply never do?',
-      hint: 'We like to nudge you outside your comfort zone — everything is beginner-friendly with expert guides.',
+      hint: 'We like to nudge you outside your comfort zone, everything is beginner-friendly with expert guides.',
       options: opt(['Comfortable with them all','No to paragliding','No to canyoning/caving','No to scuba diving','No to surfing','No to rafting','No to kayaking/SUP','No to swimming/snorkeling','No to boat trips','No to nature walks','No to hiking','No to biking/segway','No to horse/camel riding','No to wine tasting','No to brewery/distillery tours','No to spa treatments with contact']) },
     { id: 'diet', part: 'Travel profile', type: 'multi', required: true, exclusive: 'None',
       q: 'Any dietary restrictions for foodie experiences?',
@@ -106,7 +106,7 @@
     { id: 'passport', part: 'Travel profile', type: 'single', required: true,
       q: 'Do you travel on a US passport?',
       hint: 'MisteryTrips currently serves travellers flying from the USA on a US passport.',
-      options: opt(['Yes, I have a US passport','No — not yet supported']) },
+      options: opt(['Yes, I have a US passport','No, not yet supported']) },
     { id: 'airports', part: 'Travel profile', type: 'multi', grid: true, min: 1, max: 2, required: true,
       q: 'Which US airports can you fly from?', hint: 'Choose 1 or 2.',
       options: AIRPORTS },
@@ -126,7 +126,7 @@
 
     { id: 'secAct', type: 'section', part: 'Your trip', image: 'quiz-activities.gif',
       q: 'How keen are you on each of these?',
-      hint: "Rate each from 1 (not interested) to 5 (very interested). There are no wrong answers — it just helps us read you.",
+      hint: "Rate each from 1 (not interested) to 5 (very interested). There are no wrong answers, it just helps us read you.",
       cta: "Start rating" },
 
     ...[
@@ -167,12 +167,12 @@
       options: opt(['None apply','Pregnancy','Injury that restricts adventurous activity']) },
     { id: 'whenType', part: 'Your trip', type: 'single', required: true,
       q: 'When are you able to travel?',
-      options: opt(['I have specific dates in mind','I’m flexible — any month works']) },
+      options: opt(['I have specific dates in mind','I’m flexible, any month works']) },
     { id: 'dates', part: 'Your trip', type: 'daterange', required: true,
       showIf: (a) => a.whenType === 'I have specific dates in mind',
       q: 'Which dates work?', hint: "We'll treat these as your ideal window (flexible by ±7 days)." },
     { id: 'months', part: 'Your trip', type: 'multi', grid: true, min: 1, required: true,
-      showIf: (a) => a.whenType === 'I’m flexible — any month works',
+      showIf: (a) => a.whenType === 'I’m flexible, any month works',
       q: 'Which months could you go?', hint: '$–$$$ reflects typical flight & accommodation prices.',
       options: monthOpts },
     { id: 'budget', part: 'Your trip', type: 'budget', required: true,
@@ -184,7 +184,7 @@
     // ---- Contact + consent ----
     { id: 'secContact', type: 'section', part: 'Part 3 of 3', image: 'quiz-part3.png',
       q: 'Almost there.',
-      hint: 'One last thing — agree to our Privacy Policy and we’ll start matching you to your surprise destination.',
+      hint: 'One last thing, agree to our Privacy Policy and we’ll start matching you to your surprise destination.',
       cta: 'Continue' },
     { id: 'consent', part: 'Finish', type: 'consent', required: true,
       q: 'One last thing.',
@@ -400,8 +400,8 @@
     if (!res.ok) { errEl.textContent = res.err; return; }
 
     // passport gate
-    if (step.id === 'passport' && A.passport === 'No — not yet supported') {
-      errEl.textContent = 'Sorry — MisteryTrips currently only serves travellers with a US passport.';
+    if (step.id === 'passport' && A.passport === 'No, not yet supported') {
+      errEl.textContent = 'Sorry, MisteryTrips currently only serves travellers with a US passport.';
       return;
     }
 
@@ -447,7 +447,7 @@
       if (['intro', 'section', 'consent', 'contact'].includes(s.type)) return;
       const label = String(fnOr(s.q)).replace(/\s*\*$/, '');
       let val = formatValue(s);
-      if (val == null || val === '') val = '—';
+      if (val == null || val === '') val = '-';
       out.push({ label, value: val });
     });
     return out;
@@ -484,7 +484,7 @@
       document.getElementById('wz-success').style.display = 'block';
       window.scrollTo(0, 0);
     } catch (e) {
-      errEl.textContent = 'Network error — please check your connection and try again.';
+      errEl.textContent = 'Network error, please check your connection and try again.';
       nextBtn.disabled = false; backBtn.disabled = false; nextBtn.textContent = original;
     }
   }

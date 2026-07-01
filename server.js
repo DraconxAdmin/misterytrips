@@ -37,7 +37,7 @@ function esc(v) {
 
 const isEmail = (v) => typeof v === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-// Brevo SMTP transport — created once if credentials are present.
+// Brevo SMTP transport, created once if credentials are present.
 const transporter = (SMTP_HOST && SMTP_USER && SMTP_PASS)
   ? nodemailer.createTransport({
       host: SMTP_HOST,
@@ -50,7 +50,7 @@ const transporter = (SMTP_HOST && SMTP_USER && SMTP_PASS)
 // Send one email via Brevo SMTP. Keeps the same call shape used across the app.
 async function sendBrevoEmail({ to, subject, htmlContent, replyTo }) {
   if (!transporter) {
-    throw new Error('SMTP is not configured — set SMTP_HOST/SMTP_USER/SMTP_PASS in .env.');
+    throw new Error('SMTP is not configured, set SMTP_HOST/SMTP_USER/SMTP_PASS in .env.');
   }
   const info = await transporter.sendMail({
     from: { name: FROM_NAME, address: FROM_EMAIL },
@@ -72,8 +72,8 @@ const SERIF = "Georgia, 'Times New Roman', serif";
 const SANS = 'Arial, Helvetica, sans-serif';
 
 const PACKAGE_LABELS = {
-  'long-weekend': 'The Long Weekend — from $1,390 / person',
-  'full-escape': 'The Full Escape — from $2,890 / person',
+  'long-weekend': 'The Long Weekend, from $1,390 / person',
+  'full-escape': 'The Full Escape, from $2,890 / person',
 };
 
 // 6-char unambiguous uppercase + digit Trip ID, e.g. "K7Q2M9"
@@ -123,9 +123,9 @@ function tripIdBadge(id) {
   </td></tr></table>`;
 }
 
-const dRow = (k, v) => `<tr><td style="padding:9px 14px;border-bottom:1px solid #221E45;font-family:${SANS};font-size:13px;color:#8C88A8;width:42%;vertical-align:top;">${esc(k)}</td><td style="padding:9px 14px;border-bottom:1px solid #221E45;font-family:${SANS};font-size:14px;color:${BRAND_CREAM};vertical-align:top;">${esc(v) || '—'}</td></tr>`;
+const dRow = (k, v) => `<tr><td style="padding:9px 14px;border-bottom:1px solid #221E45;font-family:${SANS};font-size:13px;color:#8C88A8;width:42%;vertical-align:top;">${esc(k)}</td><td style="padding:9px 14px;border-bottom:1px solid #221E45;font-family:${SANS};font-size:14px;color:${BRAND_CREAM};vertical-align:top;">${esc(v) || '-'}</td></tr>`;
 
-// 1) USER welcome — sent the moment they enter their email
+// 1) USER welcome, sent the moment they enter their email
 function welcomeEmailHtml(d) {
   const steps = [
     ['Tell us your taste', 'A few quick questions about how you love to travel.'],
@@ -136,15 +136,15 @@ function welcomeEmailHtml(d) {
       <td style="font-family:${SANS};"><div style="font-size:15px;font-weight:bold;color:${BRAND_CREAM};">${t}</div><div style="font-size:13px;line-height:1.55;color:#9A95B5;">${s}</div></td>
     </tr></table></td></tr>`).join('');
   const body = `${h1(`Welcome aboard${d.firstName ? ', ' + esc(d.firstName) : ''}.`)}
-    ${para('You’ve just started something exciting — a trip where everything is decided for you, and nothing is revealed until the gate. Answer a few questions and we’ll craft an adventure to somewhere you’d never choose yourself.')}
+    ${para('You’ve just started something exciting, a trip where everything is decided for you, and nothing is revealed until the gate. Answer a few questions and we’ll craft an adventure to somewhere you’d never choose yourself.')}
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 24px;">${steps}</table>
     ${ctaButton('Finish your trip request', SITE_URL + '/quiz')}
     <div style="height:22px;"></div>
-    ${para('<span style="color:#8C88A8;font-size:13px;">No payment is taken to get your proposal. Reply to this email any time — a real human reads it.</span>')}`;
-  return emailShell({ preheader: 'Your MisteryTrips adventure has begun — the destination stays a secret.', body });
+    ${para('<span style="color:#8C88A8;font-size:13px;">No payment is taken to get your proposal. Reply to this email any time, a real human reads it.</span>')}`;
+  return emailShell({ preheader: 'Your MisteryTrips adventure has begun, the destination stays a secret.', body });
 }
 
-// 2) ADMIN alert — a new user just started
+// 2) ADMIN alert, a new user just started
 function adminStartEmailHtml(d) {
   const body = `${h1('New trip request started')}
     ${para('Someone just entered their email in the questionnaire. Their full answers and Trip ID will follow when they finish.')}
@@ -154,10 +154,10 @@ function adminStartEmailHtml(d) {
   return emailShell({ preheader: `New lead: ${d.name || d.email}`, body });
 }
 
-// 3) USER final — sent on submit, carries the Trip ID
+// 3) USER final, sent on submit, carries the Trip ID
 function customerFinalEmailHtml(d) {
   const body = `${h1(`Your trip is being planned${d.firstName ? ', ' + esc(d.firstName) : ''}.`)}
-    ${para('Thank you — your travel profile is complete. Our team is now matching you to a destination you’d never have booked yourself. Keep the Trip ID below handy and quote it in any message to us.')}
+    ${para('Thank you, your travel profile is complete. Our team is now matching you to a destination you’d never have booked yourself. Keep the Trip ID below handy and quote it in any message to us.')}
     ${tripIdBadge(d.tripId)}
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 22px;"><tr><td style="background:#14122B;border:1px solid #2A2650;border-radius:14px;padding:18px 22px;">
       <div style="font-family:${SANS};font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:${BRAND_GOLD};margin-bottom:6px;">Your trip</div>
@@ -165,10 +165,10 @@ function customerFinalEmailHtml(d) {
     </td></tr></table>
     ${para('We’ll be in touch shortly to confirm your dates and payment. From there, the destination stays sealed until you tear open the dossier at the gate.')}
     ${para('<span style="color:#8C88A8;font-size:13px;">No payment has been taken yet. If anything looks wrong, just reply to this email.</span>')}`;
-  return emailShell({ preheader: `Trip ID ${d.tripId} — your MisteryTrips adventure is being planned.`, body });
+  return emailShell({ preheader: `Trip ID ${d.tripId}, your MisteryTrips adventure is being planned.`, body });
 }
 
-// 4) ADMIN final — full submission with Trip ID
+// 4) ADMIN final, full submission with Trip ID
 function adminFinalEmailHtml(d) {
   const answers = (d.responses || []).map((r) => dRow(r.label, r.value)).join('');
   const body = `${h1('Quiz completed')}
@@ -178,7 +178,7 @@ function adminFinalEmailHtml(d) {
     </table>
     <div style="font-family:${SANS};font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:${BRAND_GOLD};margin:0 0 6px;">Questionnaire answers</div>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #221E45;">${answers || dRow('(no answers)', '')}</table>`;
-  return emailShell({ preheader: `Completed: ${d.name} — Trip ID ${d.tripId}`, body });
+  return emailShell({ preheader: `Completed: ${d.name}, Trip ID ${d.tripId}`, body });
 }
 
 // ---- Routes ----------------------------------------------------------------
@@ -202,13 +202,13 @@ app.post('/api/quiz/start', async (req, res) => {
     const results = await Promise.allSettled([
       sendBrevoEmail({
         to: [{ email: d.email, name: d.name || d.email }],
-        subject: 'Welcome to MisteryTrips — your trip request has begun',
+        subject: 'Welcome to MisteryTrips, your trip request has begun',
         htmlContent: welcomeEmailHtml(d),
         replyTo: { email: ADMIN_EMAIL, name: 'MisteryTrips' },
       }),
       sendBrevoEmail({
         to: [{ email: ADMIN_EMAIL, name: 'MisteryTrips Bookings' }],
-        subject: `New trip request started — ${d.name || d.email}`,
+        subject: `New trip request started, ${d.name || d.email}`,
         htmlContent: adminStartEmailHtml(d),
         replyTo: { email: d.email, name: d.name },
       }),
@@ -256,14 +256,14 @@ app.post('/api/quiz', async (req, res) => {
     // Admin first (capture the lead), then the user confirmation.
     await sendBrevoEmail({
       to: [{ email: ADMIN_EMAIL, name: 'MisteryTrips Bookings' }],
-      subject: `Quiz completed — ${data.name} (${data.tripId})`,
+      subject: `Quiz completed, ${data.name} (${data.tripId})`,
       htmlContent: adminFinalEmailHtml(data),
       replyTo: { email: data.email, name: data.name },
     });
 
     await sendBrevoEmail({
       to: [{ email: data.email, name: data.name }],
-      subject: `Your MisteryTrips adventure is being planned — Trip ID ${data.tripId}`,
+      subject: `Your MisteryTrips adventure is being planned, Trip ID ${data.tripId}`,
       htmlContent: customerFinalEmailHtml(data),
       replyTo: { email: ADMIN_EMAIL, name: 'MisteryTrips' },
     });
@@ -291,8 +291,8 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`MisteryTrips site running on port ${PORT}`);
   if (!transporter) {
-    console.warn('⚠  SMTP not configured — set SMTP_HOST/SMTP_USER/SMTP_PASS in .env to send email.');
+    console.warn('⚠  SMTP not configured, set SMTP_HOST/SMTP_USER/SMTP_PASS in .env to send email.');
   } else {
-    console.log(`✉  SMTP ready via ${SMTP_HOST} — sending as ${FROM_NAME} <${FROM_EMAIL}>`);
+    console.log(`✉  SMTP ready via ${SMTP_HOST}, sending as ${FROM_NAME} <${FROM_EMAIL}>`);
   }
 });
