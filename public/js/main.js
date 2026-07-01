@@ -37,3 +37,22 @@ function toggleFaq(btn) {
   ans.style.opacity = open ? '0' : '1';
   if (sign) sign.style.transform = open ? 'rotate(0deg)' : 'rotate(45deg)';
 }
+
+// Journey steps — scroll reveal
+const journeySteps = document.querySelectorAll('.journey-step');
+if (journeySteps.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const journeyObs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        journeyObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  journeySteps.forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+    journeyObs.observe(el);
+  });
+} else {
+  journeySteps.forEach((el) => el.classList.add('is-visible'));
+}

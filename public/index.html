@@ -243,94 +243,124 @@
   </section>
 
   <!-- ===== HOW IT WORKS ===== -->
-  <section id="how" style="background: #F4EDDF; color: #14122B; padding: clamp(80px,11vw,140px) clamp(20px,5vw,64px);">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <div style="text-align: center; margin-bottom: 72px;">
-        <div style="display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px;"><span style="width: 30px; height: 1px; background: #9A7B33;"></span><span style="font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; color: #9A7B33;">The journey</span></div>
-        <h2 style="font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(30px,4.8vw,54px); letter-spacing: -0.02em; margin: 0;">Four steps. One you can't predict.</h2>
-      </div>
+  <section id="how" class="journey">
+    <div class="journey__glow" aria-hidden="true"></div>
+    <div class="journey__inner">
+      <header class="journey__head">
+        <div class="journey__eyebrow"><span></span>The journey</div>
+        <h2 class="journey__title">Four steps.<br>One you can't predict.</h2>
+        <p class="journey__lede">From a three-minute quiz to the gate-side reveal — every stage is designed to keep the destination sealed until the last possible moment.</p>
+      </header>
 
-      <div style="max-width: 960px; margin: 0 auto;">
-
-        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-          <div style="flex:1 1 300px; min-width:280px; position:relative;">
-            <div style="position:absolute; top:-32px; left:2px; font-family:'Newsreader',serif; font-weight:300; font-size:130px; line-height:1; color:rgba(154,123,51,0.16); z-index:0; user-select:none; pointer-events:none;">01</div>
-            <div class="step-card" style="position:relative; z-index:1; aspect-ratio:1/1; border-radius:24px; overflow:hidden; background:linear-gradient(160deg,#F3D488,#EBC062); box-shadow:0 22px 50px rgba(20,18,43,0.14);">
-              <img src="assets/step1-quiz.png" alt="Filling out the taste questionnaire" onerror="this.style.display='none'" style="width:100%; height:100%; object-fit:cover; display:block;">
-              <div style="position:absolute; left:16px; bottom:16px; background:rgba(12,16,38,0.55); color:#F4EDDF; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">&asymp; 3 minutes</div>
+      <ol class="journey__track">
+        <li class="journey-step">
+          <div class="journey-step__node" aria-hidden="true"><span>01</span></div>
+          <article class="journey-step__card">
+            <div class="journey-step__art journey-step__art--quiz" aria-hidden="true">
+              <svg viewBox="0 0 320 240" fill="none">
+                <rect x="48" y="28" width="224" height="184" rx="18" fill="#100C2A" stroke="#2A2650" stroke-width="1.5"/>
+                <rect x="68" y="52" width="120" height="10" rx="5" fill="#2A2650"/>
+                <rect x="68" y="74" width="184" height="8" rx="4" fill="#1C1840"/>
+                <rect x="68" y="98" width="88" height="32" rx="16" fill="rgba(221,168,74,0.22)" stroke="#DDA84A" stroke-width="1.2"/>
+                <rect x="164" y="98" width="88" height="32" rx="16" fill="#14122B" stroke="#34305C"/>
+                <rect x="68" y="142" width="72" height="32" rx="16" fill="#14122B" stroke="#34305C"/>
+                <rect x="148" y="142" width="104" height="32" rx="16" fill="rgba(221,168,74,0.14)" stroke="#9A7B33"/>
+                <circle cx="248" cy="176" r="22" fill="#DDA84A"/>
+                <path d="M240 176 L246 182 L258 170" stroke="#14122B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="journey-step__badge">&asymp; 3 min</span>
             </div>
-          </div>
-          <div style="flex:1 1 300px; min-width:280px;">
-            <div style="display:inline-flex; align-items:center; gap:11px; margin-bottom:14px;"><span style="width:24px; height:1px; background:#9A7B33;"></span><span style="font-family:'Newsreader',serif; font-style:italic; font-size:15px; color:#9A7B33;">Step one</span></div>
-            <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.02em; margin:0 0 14px; color:#14122B;">Tell us your taste</h3>
-            <p style="font-size:16px; line-height:1.7; color:#4A4660; margin:0 0 18px;">A three-minute questionnaire on pace, climate, budget — and every place you've already been or would rather skip.</p>
-            <div style="display:inline-flex; align-items:center; gap:9px; font-size:14px; color:#9A7B33; font-weight:600;"><span style="color:#7BA86A;">&#10003;</span> No account, no commitment</div>
-          </div>
-        </div>
-
-        <div style="display:flex; justify-content:center; padding:18px 0;">
-          <svg width="20" height="58" viewBox="0 0 20 58" fill="none"><path d="M10 2 V44" stroke="#9A7B33" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/><circle cx="10" cy="52" r="4" fill="#DDA84A"/></svg>
-        </div>
-
-        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; flex-direction:row-reverse;">
-          <div style="flex:1 1 300px; min-width:280px; position:relative;">
-            <div style="position:absolute; top:-32px; right:2px; font-family:'Newsreader',serif; font-weight:300; font-size:130px; line-height:1; color:rgba(154,123,51,0.16); z-index:0; user-select:none; pointer-events:none;">02</div>
-            <div class="step-card" style="position:relative; z-index:1; aspect-ratio:1/1; border-radius:24px; overflow:hidden; background:linear-gradient(160deg,#F3D488,#EBC062); box-shadow:0 22px 50px rgba(20,18,43,0.14);">
-              <img src="assets/step2-map.png" alt="Planning a route on a map" onerror="this.style.display='none'" style="width:100%; height:100%; object-fit:cover; display:block;">
-              <div style="position:absolute; left:16px; bottom:16px; background:rgba(12,16,38,0.55); color:#F4EDDF; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">We book it all</div>
+            <div class="journey-step__body">
+              <span class="journey-step__label">Step one</span>
+              <h3 class="journey-step__heading">Tell us your taste</h3>
+              <p class="journey-step__text">A three-minute questionnaire on pace, climate, budget — and every place you've already been or would rather skip.</p>
+              <span class="journey-step__perk"><span aria-hidden="true">&#10003;</span> No account, no commitment</span>
             </div>
-          </div>
-          <div style="flex:1 1 300px; min-width:280px;">
-            <div style="display:inline-flex; align-items:center; gap:11px; margin-bottom:14px;"><span style="width:24px; height:1px; background:#9A7B33;"></span><span style="font-family:'Newsreader',serif; font-style:italic; font-size:15px; color:#9A7B33;">Step two</span></div>
-            <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.02em; margin:0 0 14px; color:#14122B;">We craft it, quietly</h3>
-            <p style="font-size:16px; line-height:1.7; color:#4A4660; margin:0 0 18px;">Flights, stays, tables, and the kind of local experiences you can't search for — booked end to end. No spoilers leave our office.</p>
-            <div style="display:inline-flex; align-items:center; gap:9px; font-size:14px; color:#9A7B33; font-weight:600;"><span style="color:#7BA86A;">&#10003;</span> Take 30+ planning hours back</div>
-          </div>
-        </div>
+          </article>
+        </li>
 
-        <div style="display:flex; justify-content:center; padding:18px 0;">
-          <svg width="20" height="58" viewBox="0 0 20 58" fill="none"><path d="M10 2 V44" stroke="#9A7B33" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/><circle cx="10" cy="52" r="4" fill="#DDA84A"/></svg>
-        </div>
-
-        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-          <div style="flex:1 1 300px; min-width:280px; position:relative;">
-            <div style="position:absolute; top:-32px; left:2px; font-family:'Newsreader',serif; font-weight:300; font-size:130px; line-height:1; color:rgba(154,123,51,0.16); z-index:0; user-select:none; pointer-events:none;">03</div>
-            <div class="step-card" style="position:relative; z-index:1; aspect-ratio:1/1; border-radius:24px; overflow:hidden; background:linear-gradient(160deg,#F3D488,#EBC062); box-shadow:0 22px 50px rgba(20,18,43,0.14);">
-              <img src="assets/step3-dossier.png" alt="Holding the wax-sealed dossier" onerror="this.style.display='none'" style="width:100%; height:100%; object-fit:cover; display:block;">
-              <div style="position:absolute; left:16px; bottom:16px; background:rgba(12,16,38,0.55); color:#F4EDDF; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">Sealed by mail</div>
+        <li class="journey-step journey-step--reverse">
+          <div class="journey-step__node" aria-hidden="true"><span>02</span></div>
+          <article class="journey-step__card">
+            <div class="journey-step__art journey-step__art--craft" aria-hidden="true">
+              <svg viewBox="0 0 320 240" fill="none">
+                <circle cx="160" cy="118" r="78" stroke="#2A2650" stroke-width="1.5" fill="#100C2A"/>
+                <path d="M160 40 C210 72 228 118 160 196 C92 118 110 72 160 40Z" fill="rgba(221,168,74,0.12)" stroke="#9A7B33" stroke-width="1.2"/>
+                <path d="M82 118 H238" stroke="#34305C" stroke-width="1" stroke-dasharray="4 6"/>
+                <path d="M160 40 V196" stroke="#34305C" stroke-width="1" stroke-dasharray="4 6"/>
+                <circle cx="198" cy="92" r="26" fill="#14122B" stroke="#DDA84A" stroke-width="1.5"/>
+                <text x="198" y="99" text-anchor="middle" fill="#DDA84A" font-family="Newsreader, serif" font-size="22" font-weight="500">?</text>
+                <rect x="118" y="168" width="84" height="28" rx="14" fill="rgba(221,168,74,0.18)" stroke="#DDA84A" stroke-width="1"/>
+                <text x="160" y="187" text-anchor="middle" fill="#F4EDDF" font-family="Hanken Grotesk, sans-serif" font-size="10" letter-spacing="0.14em">BOOKING</text>
+              </svg>
+              <span class="journey-step__badge">We book it all</span>
             </div>
-          </div>
-          <div style="flex:1 1 300px; min-width:280px;">
-            <div style="display:inline-flex; align-items:center; gap:11px; margin-bottom:14px;"><span style="width:24px; height:1px; background:#9A7B33;"></span><span style="font-family:'Newsreader',serif; font-style:italic; font-size:15px; color:#9A7B33;">Step three</span></div>
-            <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.02em; margin:0 0 14px; color:#14122B;">A sealed dossier ships to you</h3>
-            <p style="font-size:16px; line-height:1.7; color:#4A4660; margin:0 0 18px;">Tickets and a reveal card arrive at your door, wax-sealed. A weather forecast and packing list unlock two weeks out — the place stays hidden.</p>
-            <div style="display:inline-flex; align-items:center; gap:9px; font-size:14px; color:#9A7B33; font-weight:600;"><span style="color:#7BA86A;">&#10003;</span> Clues keep dropping until you fly</div>
-          </div>
-        </div>
-
-        <div style="display:flex; justify-content:center; padding:18px 0;">
-          <svg width="20" height="58" viewBox="0 0 20 58" fill="none"><path d="M10 2 V44" stroke="#9A7B33" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/><circle cx="10" cy="52" r="4" fill="#DDA84A"/></svg>
-        </div>
-
-        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; flex-direction:row-reverse;">
-          <div style="flex:1 1 300px; min-width:280px; position:relative;">
-            <div style="position:absolute; top:-32px; right:2px; font-family:'Newsreader',serif; font-weight:300; font-size:130px; line-height:1; color:rgba(154,123,51,0.2); z-index:0; user-select:none; pointer-events:none;">04</div>
-            <div class="step-card" style="position:relative; z-index:1; aspect-ratio:1/1; border-radius:24px; overflow:hidden; background:#E8B24E; box-shadow:0 26px 56px rgba(210,146,47,0.3);">
-              <img src="assets/step4-gate.png" alt="Discovering the destination at the gate" onerror="this.style.display='none'" style="width:100%; height:100%; object-fit:cover; display:block;">
-              <div style="position:absolute; left:16px; bottom:16px; background:rgba(20,18,43,0.62); color:#F4EDDF; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">The big reveal</div>
+            <div class="journey-step__body">
+              <span class="journey-step__label">Step two</span>
+              <h3 class="journey-step__heading">We craft it, quietly</h3>
+              <p class="journey-step__text">Flights, stays, tables, and the kind of local experiences you can't search for — booked end to end. No spoilers leave our office.</p>
+              <span class="journey-step__perk"><span aria-hidden="true">&#10003;</span> Take 30+ planning hours back</span>
             </div>
-          </div>
-          <div style="flex:1 1 300px; min-width:280px;">
-            <div style="display:inline-flex; align-items:center; gap:11px; margin-bottom:14px;"><span style="width:24px; height:1px; background:#9A7B33;"></span><span style="font-family:'Newsreader',serif; font-style:italic; font-size:15px; color:#9A7B33;">The payoff</span></div>
-            <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(28px,3.6vw,38px); letter-spacing:-0.02em; margin:0 0 14px; color:#14122B;">Break the seal at the gate</h3>
-            <p style="font-size:16px; line-height:1.7; color:#4A4660; margin:0 0 18px;">Open it at the airport. Now — and only now — you know where you're going. Board, and let the trip begin.</p>
-            <div style="display:inline-flex; align-items:center; gap:9px; font-size:14px; color:#9A7B33; font-weight:600;"><span style="color:#7BA86A;">&#10003;</span> The moment everyone films</div>
-          </div>
-        </div>
+          </article>
+        </li>
 
-        <div style="text-align:center; margin-top:64px;">
-          <a href="/quiz" class="cta-ghost" style="display:inline-block; background:#14122B; color:#F4EDDF; font-weight:600; font-size:16px; padding:16px 32px; border-radius:999px; text-decoration:none;">Start step one &rarr;</a>
-        </div>
+        <li class="journey-step">
+          <div class="journey-step__node" aria-hidden="true"><span>03</span></div>
+          <article class="journey-step__card">
+            <div class="journey-step__art journey-step__art--dossier" aria-hidden="true">
+              <svg viewBox="0 0 320 240" fill="none">
+                <rect x="72" y="44" width="176" height="152" rx="10" fill="#F4EDDF" stroke="#CBB98E" stroke-width="1.5"/>
+                <rect x="88" y="68" width="144" height="8" rx="4" fill="#E8DFC8"/>
+                <rect x="88" y="86" width="108" height="6" rx="3" fill="#E8DFC8"/>
+                <rect x="88" y="100" width="124" height="6" rx="3" fill="#E8DFC8"/>
+                <rect x="88" y="128" width="80" height="44" rx="6" fill="#14122B" opacity="0.08"/>
+                <circle cx="160" cy="132" r="34" fill="url(#wax)" stroke="#B07F2E" stroke-width="1.2"/>
+                <path d="M148 132 L156 140 L174 122" stroke="#3A2408" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <radialGradient id="wax" cx="38%" cy="34%"><stop offset="0%" stop-color="#E8B85C"/><stop offset="100%" stop-color="#C2882E"/></radialGradient>
+                </defs>
+              </svg>
+              <span class="journey-step__badge">Sealed by mail</span>
+            </div>
+            <div class="journey-step__body">
+              <span class="journey-step__label">Step three</span>
+              <h3 class="journey-step__heading">A sealed dossier ships to you</h3>
+              <p class="journey-step__text">Tickets and a reveal card arrive at your door, wax-sealed. A weather forecast and packing list unlock two weeks out — the place stays hidden.</p>
+              <span class="journey-step__perk"><span aria-hidden="true">&#10003;</span> Clues keep dropping until you fly</span>
+            </div>
+          </article>
+        </li>
+
+        <li class="journey-step journey-step--reverse journey-step--finale">
+          <div class="journey-step__node journey-step__node--finale" aria-hidden="true"><span>04</span></div>
+          <article class="journey-step__card journey-step__card--finale">
+            <div class="journey-step__art journey-step__art--gate" aria-hidden="true">
+              <svg viewBox="0 0 320 240" fill="none">
+                <rect x="56" y="52" width="208" height="136" rx="14" fill="#14122B" stroke="#DDA84A" stroke-width="1.5"/>
+                <text x="160" y="84" text-anchor="middle" fill="#6B6788" font-family="Hanken Grotesk, sans-serif" font-size="9" letter-spacing="0.22em">BOARDING PASS</text>
+                <text x="88" y="118" fill="#8C88A8" font-family="Hanken Grotesk, sans-serif" font-size="10" letter-spacing="0.12em">FROM</text>
+                <text x="88" y="142" fill="#F4EDDF" font-family="Newsreader, serif" font-size="28">JFK</text>
+                <text x="232" y="118" text-anchor="end" fill="#8C88A8" font-family="Hanken Grotesk, sans-serif" font-size="10" letter-spacing="0.12em">TO</text>
+                <text x="232" y="148" text-anchor="end" fill="#DDA84A" font-family="Newsreader, serif" font-size="34" font-weight="500">???</text>
+                <path d="M130 128 H190" stroke="#34305C" stroke-width="1.5" stroke-dasharray="3 5"/>
+                <path d="M148 128 L160 118 L172 128 L160 138Z" fill="#DDA84A"/>
+                <rect x="88" y="162" width="144" height="1" fill="#2A2650"/>
+                <text x="160" y="178" text-anchor="middle" fill="#9A95B5" font-family="Hanken Grotesk, sans-serif" font-size="10">GATE B12 &middot; REVEAL AT BOARDING</text>
+              </svg>
+              <span class="journey-step__badge journey-step__badge--gold">The big reveal</span>
+            </div>
+            <div class="journey-step__body">
+              <span class="journey-step__label">The payoff</span>
+              <h3 class="journey-step__heading">Break the seal at the gate</h3>
+              <p class="journey-step__text">Open it at the airport. Now — and only now — you know where you're going. Board, and let the trip begin.</p>
+              <span class="journey-step__perk"><span aria-hidden="true">&#10003;</span> The moment everyone films</span>
+            </div>
+          </article>
+        </li>
+      </ol>
+
+      <div class="journey__cta">
+        <a href="/quiz" class="journey__cta-btn">Start step one &rarr;</a>
       </div>
     </div>
   </section>
