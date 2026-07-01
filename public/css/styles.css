@@ -345,11 +345,12 @@ img, svg { max-width: 100%; }
 }
 .journey-step__img {
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   height: auto;
-  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   display: block;
-  filter: drop-shadow(0 10px 24px rgba(20,18,43,0.12));
+  border-radius: 16px;
 }
 .journey-step__badge {
   position: absolute;
